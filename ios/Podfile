@@ -25,6 +25,8 @@ end
 
 target 'homePrudenza-tvOS' do
   # Pods for homePrudenza-tvOS
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
 
   target 'homePrudenza-tvOSTests' do
     inherit! :search_paths
