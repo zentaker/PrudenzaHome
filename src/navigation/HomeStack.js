@@ -1,17 +1,15 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from '../screens/Home';
+
+import Asesor from '../screens/Asesor';
 
 const Stack = createStackNavigator();
 
 export default function HomeStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="home"
-        component={Home}
-        options={{title: 'Prudenza'}}
-      />
+      <Stack.Screen name="Asesor" component={Asesor} options={{title: "Prudenza"}} />
+      
     </Stack.Navigator>
   );
 }

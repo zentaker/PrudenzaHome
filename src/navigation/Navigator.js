@@ -1,56 +1,53 @@
 import * as React from 'react';
-import {Text, View} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import {Text, View, StyleSheet} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Appbar } from 'react-native-paper';
+
+import Seguros from '../screens/Seguros';
+import Optimizador from '../screens/Optimizador';
 import Asesor from '../screens/Asesor';
-import Seguros from '../screens/Seguros'
-
-function HomeScreen() {
-  return (
-    <Tab.Navigator>
-    
-      <Tab.Screen name="Asesor" component={Asesor} />
-      <Tab.Screen name="Seguros" component={Seguros} />
-      <Tab.Screen name="Settingsss" component={SettingsScreenn} />
-  </Tab.Navigator>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-function SettingsScreenn() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-
 
 const Tab = createMaterialTopTabNavigator();
 
-const Stack = createStackNavigator();
 
-function MyStack() {
+export default function Navigator(props) {
+  const { navigation } = props;
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Prudenza" component={HomeScreen} />
-      <Stack.Screen name="Settings" component={SettingsScreen} />
-    </Stack.Navigator>
-  );
-}
 
+    <>
 
-export default function App() {
-  return (
-    
-    <MyStack />
+    <View>
+    <Appbar.Header style={styles.color}>
+    <Appbar.Action icon="menu" onPress={() => navigation.openDrawer()} />
   
+  <Appbar.Content style={styles.txt} title="Prudenza"  />
+  <Appbar.Action icon="magnify" onPress={() => console.log('Pressed')} />
+  
+</Appbar.Header>
+  </View>
+
+      
+    <Tab.Navigator>
+      <Tab.Screen name="Asesor" component={Asesor} />
+      <Tab.Screen name="Seguros" component={Seguros} />
+      <Tab.Screen name="Optimizador" component={Optimizador} />
+      </Tab.Navigator>
+
+      </>
+    
   );
 }
+
+var styles = StyleSheet.create({
+  color: {
+    backgroundColor: 'white',
+ 
+  },
+  txt: {
+    alignContent: 'center',
+    paddingHorizontal: 95,
+   
+  }
+});
